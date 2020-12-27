@@ -1,0 +1,48 @@
+@charset "UTF-8";
+@import 'mixin';
+
+* {
+  margin: 0;
+  padding: 0;
+  text-align: justify;
+  box-sizing: border-box;
+  appearance: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+li {
+  list-style-type: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+
+select {
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  font-family: 'Philosopher', sans-serif;
+}
