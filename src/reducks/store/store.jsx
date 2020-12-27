@@ -13,8 +13,7 @@ export const createStore = (history) => {
       router: connectRouter(history),
       user: UserReducer,
     }),
-    applyMiddleware(routerMiddleware(history)),
-    thunk
+    applyMiddleware(routerMiddleware(history), thunk)
   );
 };
 

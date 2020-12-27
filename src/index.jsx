@@ -7,8 +7,8 @@ import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
 import * as History from 'history';
 
-export const store = createStore();
 const history = History.createBrowserHistory();
+export const store = createStore(history);
 
 ReactDOM.render(
   <React.StrictMode>
