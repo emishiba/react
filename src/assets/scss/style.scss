@@ -20,7 +20,8 @@ img {
 
 a {
   text-decoration: none;
-  color: #000;
+  color: $blk;
+  cursor: pointer;
 }
 
 li {
@@ -30,6 +31,7 @@ li {
 button {
   border: none;
   background: transparent;
+  cursor: pointer;
 }
 
 select {
@@ -43,6 +45,479 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-h2 {
-  font-family: 'Philosopher', sans-serif;
+main {
+  background: url(../imgs/main_bkg.png) no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+}
+
+.js-fadeIn {
+  &_bkg {
+    @include fadein;
+  }
+}
+
+.pagewrap {
+  position: relative;
+}
+
+.headerarea {
+  background: #fff;
+
+  &__inner {
+    width: 90%;
+    max-width: 1500px;
+    margin: auto;
+    height: 82px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  h1 {
+    width: 185px;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  nav {
+    opacity: 0;
+
+    ul {
+      display: flex;
+      width: 450px;
+    }
+  }
+
+  .js {
+    &-fadeIn {
+      &_logo {
+        @include fadein(1.8s);
+      }
+
+      &_nav {
+        @include fadein(2s);
+      }
+    }
+  }
+}
+
+.top {
+  @include max-width;
+
+  h2 {
+    opacity: 0;
+    text-align: center;
+    width: 506px;
+    margin: auto;
+    padding-top: 156px;
+    margin-bottom: 44px;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    span {
+      font-size: 30px;
+      font-weight: 300;
+    }
+  }
+
+  &__btnright {
+    @include btn;
+    font-weight: 300;
+    &::before {
+      right: 33.4px;
+    }
+  }
+
+  .js {
+    &-btn {
+      opacity: 0;
+    }
+
+    &-fadeIn {
+      &_title {
+        @include fadein(1.2s);
+      }
+
+      &_btn {
+        @include fadein(1.6s);
+      }
+    }
+  }
+}
+
+.profile {
+  @include max-width;
+
+  h2 {
+    margin-bottom: 15px;
+  }
+
+  dt {
+    font-size: 12px;
+  }
+
+  dd {
+    &:nth-child(2) {
+      font-size: 42px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+
+      &::after {
+        display: inline-block;
+        content: 'コーダー';
+        width: 110px;
+        font-size: 1rem;
+        color: $blue;
+        border-radius: 40px;
+        padding: 2px 0;
+        background: #fff;
+        border: 1px solid $blue;
+        width: 110px;
+        text-align: center;
+        margin-left: 30px;
+      }
+    }
+    &:nth-child(4) {
+      font-size: 22px;
+    }
+  }
+}
+
+.skill {
+  @include max-width;
+  h2 {
+    margin-bottom: 43px;
+  }
+
+  dl {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  dt {
+    margin-bottom: 11px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  &__wrap {
+    margin-bottom: 46px;
+
+    dd {
+      width: 350px;
+      font-size: 14px;
+      font-weight: 400;
+
+      &:nth-child(2) {
+        background: $blue;
+        border-radius: 8px;
+        position: relative;
+        margin-bottom: 15px;
+      }
+    }
+
+    &:first-child {
+      .skill__graph {
+        &::after {
+          right: -8px;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      .skill__graph {
+        &::after {
+          right: 56px;
+        }
+      }
+    }
+    &:nth-child(3) {
+      .skill__graph {
+        &::after {
+          right: 46.3%;
+        }
+      }
+    }
+    &:last-child {
+      .skill__graph {
+        &::after {
+          right: 46.3%;
+        }
+      }
+    }
+  }
+
+  &__graph {
+    width: 264px;
+    height: 72px;
+    border-bottom: 2px solid #fff;
+    transform: translateY(-40%);
+    margin: auto;
+    position: relative;
+
+    &::after {
+      @include pseudo(19px);
+      height: 19px;
+      background: url('../imgs/star.svg') no-repeat;
+      background-size: contain;
+      position: absolute;
+      right: 57px;
+      bottom: 12px;
+    }
+
+    p {
+      color: #fff;
+      position: absolute;
+      bottom: -1.5rem;
+      font-size: 9px;
+      font-weight: 700;
+
+      &:first-child {
+        left: 0;
+      }
+
+      &:nth-child(2) {
+        right: 0;
+      }
+    }
+
+    span {
+      display: block;
+      content: '';
+      width: 2px;
+      height: 10px;
+      background: #fff;
+      position: absolute;
+      bottom: -1px;
+
+      &:first-of-type {
+        left: 0;
+      }
+      &:nth-of-type(2) {
+        left: 66px;
+      }
+      &:nth-of-type(3) {
+        left: 132px;
+      }
+      &:nth-of-type(4) {
+        left: 198px;
+      }
+      &:nth-of-type(5) {
+        right: 0;
+      }
+    }
+  }
+}
+
+.works {
+  @include max-width;
+
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  &__menu {
+    a {
+      padding-bottom: 10px;
+      &:hover {
+        border-bottom: 1px solid $blk;
+      }
+    }
+
+    .makeStyles-current-34 {
+      border-bottom: 1px solid $blk;
+    }
+  }
+
+  .js {
+    &-modal_open {
+      opacity: 1;
+    }
+
+    &-swiper-container {
+      pointer-events: all;
+    }
+  }
+}
+
+.swiper {
+  &-container {
+    max-width: 1020px;
+    width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  &-button {
+    &-next {
+      right: 6px;
+      &::after {
+        @include slide-arrow;
+      }
+    }
+
+    &-prev {
+      left: 6px;
+      &::after {
+        @include slide-arrow(-135deg);
+      }
+    }
+  }
+}
+
+.swiper-button-prev.swiper-button-disabled,
+.swiper-button-next.swiper-button-disabled {
+  opacity: 0;
+}
+
+.image-gallery {
+  background: #c4c4c4;
+  padding: 10px 0;
+
+  &-slide-wrapper {
+    width: 55%;
+    margin: 0 auto;
+  }
+
+  &-thumbnail.active,
+  &-thumbnail:hover,
+  &-thumbnail.focus {
+    border-color: $blk;
+  }
+
+  &-thumbnails &-thumbnails-container {
+    text-align: left;
+    padding-left: 100px;
+  }
+}
+
+.contact {
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  &__wrap {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 34px rgba(108, 128, 133, 0.3);
+    margin: 0 auto 40px;
+    z-index: 1;
+  }
+
+  dl {
+    max-width: 780px;
+    padding: 60px 63px;
+    position: relative;
+
+    @include sp {
+      width: 100%;
+      padding: 60px 40px;
+    }
+
+    &::before {
+      @include icon-required;
+      position: absolute;
+      right: 45px;
+      top: 28px;
+    }
+
+    &::after {
+      display: inline-block;
+      content: '必須';
+      width: 21px;
+      height: 12px;
+      font-size: 10px;
+      position: absolute;
+      right: 26px;
+      top: 25px;
+    }
+  }
+
+  dt {
+    font-size: 14px;
+    color: $blk;
+
+    &:not(:first-child) {
+      margin-top: 20px;
+    }
+
+    &:not(:nth-of-type(3)) {
+      &::after {
+        @include icon-required;
+        margin-left: 3px;
+      }
+    }
+  }
+
+  &__formwrap {
+    display: flex;
+    justify-content: space-between;
+
+    dd {
+      width: 48%;
+    }
+  }
+
+  &__checkbox {
+    text-align: center;
+    display: block;
+    margin-bottom: 38px;
+
+    input {
+      &:checked + span::after {
+        @include pseudo(8.41px);
+        height: 22px;
+        transform: rotate(40deg);
+        border-bottom: 2px solid $blk;
+        border-right: 2px solid $blk;
+        position: absolute;
+        left: 13px;
+        top: -10px;
+      }
+    }
+
+    span {
+      position: relative;
+      font-size: 14px;
+      &::before {
+        @include pseudo(22px);
+        height: 22px;
+        border: 2px solid $blk;
+        border-radius: 3px;
+        transform: translateY(8px);
+        margin-right: 5px;
+      }
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__btnright {
+    @include btn(339px, 60px, 12.71px, 21px);
+
+    &::before {
+      right: 31.56px;
+    }
+  }
+
+  &__btnleft {
+    @include btn(339px, 60px, 12.71px, 21px, 135deg);
+    &::before {
+      left: 30.87px;
+    }
+  }
 }

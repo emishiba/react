@@ -1,1 +1,116 @@
-$color: 'pink';
+$blue: #77a6d5;
+$blk: #333;
+$blue-border: #d5e3f1;
+$blue-inputbkg: #eaf0f5;
+$lblue: #e5ebf1;
+$lgry: #9b9b9b;
+$red: #ff0000;
+
+$md: 680px;
+$sp: 480px;
+
+@mixin sp {
+  @media (max-width: ($sp)) {
+    @content;
+  }
+}
+
+@mixin pseudo($width: 120px, $display: inline-block) {
+  display: $display;
+  content: '';
+  width: $width;
+}
+
+//  common
+
+@mixin max-width($wid: 820px) {
+  max-width: $wid;
+  width: 100%;
+  margin: auto;
+}
+
+//top
+@mixin fadein($time: 0.5s) {
+  opacity: 1;
+  transition: 0.3s $time;
+}
+
+//works
+@mixin slide-arrow($rotate: 45deg) {
+  display: block;
+  content: '';
+  width: 34px;
+  height: 27px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  transform: rotate($rotate);
+}
+
+// contact
+@mixin btn($wid: 220px, $hei: 50px, $size: 8.67px, $font: 20px, $roat: -45deg) {
+  max-width: $wid;
+  width: 100%;
+  height: $hei;
+  line-height: $hei;
+  border-radius: 40px;
+  border: 1px solid $blue;
+  background: #fff;
+  color: $blue;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  display: block;
+  text-align: center;
+  font-size: $font;
+  margin-bottom: 20px;
+
+  &::before {
+    display: inline-block;
+    content: '';
+    border-bottom: 1px solid $blue;
+    border-right: 1px solid $blue;
+    width: $size;
+    height: $size;
+    transform: rotate($roat);
+    position: absolute;
+    top: 40%;
+  }
+
+  &::after {
+    display: block;
+    content: '';
+    background: $blue;
+    width: 0%;
+    height: 100%;
+    border-radius: 40px;
+    transition: 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: #fff;
+
+    &::before {
+      border-bottom: 1px solid #fff;
+      border-right: 1px solid #fff;
+    }
+
+    &::after {
+      width: 100%;
+    }
+  }
+}
+
+@mixin icon-required {
+  display: inline-block;
+  content: '*';
+  width: 10px;
+  height: 12px;
+  font-size: 12px;
+  font-weight: 300;
+  color: $red;
+}
