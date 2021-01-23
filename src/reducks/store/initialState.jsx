@@ -1,17 +1,20 @@
 const initialState = {
-  user: {
-    name: '',
-    age: '',
-    gender: '',
-    role: '',
-  },
-
   works: {
     list: [],
   },
 
   contact: {
-    list: [],
+    data: {
+      id: '',
+      familyName: '',
+      firstName: '',
+      company: '',
+      dept: '',
+      email: '',
+      tell: '',
+      detail: '',
+      checked: false,
+    },
   },
 };
 
