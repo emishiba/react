@@ -1,17 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { ListIcon } from '../uikit/index';
 import { ImagesGallery } from './index';
-import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import 'swiper/css/swiper.css';
+import { returnCodeToBr } from '../../function/common';
 
 const useStyles = makeStyles({
   container: {
     background: '#fff',
     borderRadius: '10px',
     maxWidth: '920px',
-    width: '100%',
+    width: '90%',
     margin: 'auto',
     position: 'relative',
     top: '30px',
@@ -19,23 +19,23 @@ const useStyles = makeStyles({
   },
 
   title: {
-    fontWeight: 'bold',
     color: '#fff',
     backgroundColor: ' #77a6d5',
     borderRadius: '10px 10px 0 0',
     textAlign: 'center',
-    fontSize: '2rem',
+    fontSize: '26px',
+    fontWeight: 700,
     lineHeight: '1',
     padding: '20px 0',
-  },
 
-  subtitle: {
-    fontWeight: 'normal',
-    fontSize: '1.2rem',
+    '& span': {
+      fontSize: '14px',
+      fontWeight: 400,
+    },
   },
 
   list: {
-    padding: '30px 30px 0',
+    padding: '30px',
   },
 
   closebtn: {
@@ -69,16 +69,16 @@ const WorksSlide = ({ name, slide, url, lang, desc, handleClose }) => {
 
   return (
     <div className={`${classes.container}` + ' ' + 'js-modal'}>
-      <div className={classes.title}>
+      <p className={classes.title}>
         {name[0]}
         <br />
-        <span className={classes.subtitle}>{name[1]}</span>
-      </div>
+        <span>{name[1]}</span>
+      </p>
       <ImagesGallery slide={slide} />
       <dl className={classes.list}>
         <ListIcon primary={'URL'} secondary={url} />
         <ListIcon primary={'使用言語'} secondary={lang} />
-        <ListIcon primary={'詳細'} secondary={desc} />
+        <ListIcon primary={'詳細'} secondary={returnCodeToBr(desc)} />
       </dl>
       <button
         className={classes.closebtn}

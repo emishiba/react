@@ -18,12 +18,11 @@ const useStyles = makeStyles({
   },
 });
 
-const CodingFront = ({ images }) => {
+const CodingFront = ({ pfdata }) => {
   const classes = useStyles();
 
   const [swiper, setSwiper] = useState(null);
   const [open, setOpen] = useState(false);
-  console.log(open);
 
   const [params] = useState({
     navigation: {
@@ -32,6 +31,7 @@ const CodingFront = ({ images }) => {
     },
     loop: false,
     centeredSlides: true,
+    slidesPerView: 1,
   });
 
   const handleOpen = useCallback(
@@ -54,14 +54,12 @@ const CodingFront = ({ images }) => {
   useEffect(() => {
     // swiper pointerEvent 無効・有効
     const getSwiperSlide = document.querySelector('.swiper-container');
-
     if (open) {
       getSwiperSlide.classList.add('js-swiper-container');
     } else {
       getSwiperSlide.classList.remove('js-swiper-container');
     }
-
-    // モーダル・作品紹介スライド 表示・非表示
+    //モーダル・作品紹介スライド 表示・非表示
     const getModal = [...document.querySelectorAll('.js-modal')];
     getModal.map((item) => {
       if (open) {
@@ -75,26 +73,26 @@ const CodingFront = ({ images }) => {
   return (
     <>
       <ul className={classes.thumbsWrap}>
-        {images.map((image, index) => (
+        {pfdata.map((data, index) => (
           <ThumbsList
-            image={image}
+            image={data}
             index={index}
             handleOpen={() => handleOpen(index)}
-            key={image.id}
+            key={data.url}
           />
         ))}
       </ul>
       <Modal open={open} />
 
       <Swiper {...params}>
-        {images.map((value) => (
-          <div key={value.id}>
+        {pfdata.map((data) => (
+          <div key={data.url}>
             <WorksSlide
-              name={value.name}
-              slide={value.slide}
-              url={value.url}
-              lang={value.lang}
-              desc={value.desc}
+              name={data.name}
+              slide={data.slide}
+              url={data.url}
+              lang={data.lang}
+              desc={data.desc}
               handleClose={handleClose}
             />
           </div>

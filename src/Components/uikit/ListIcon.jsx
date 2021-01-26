@@ -10,11 +10,11 @@ const useStyles = makeStyles({
   primary: {
     display: 'flex',
     alignItems: 'center',
-    marginBottom: '10px',
+    marginBottom: '3px',
   },
 
   secondary: {
-    marginBottom: '30px',
+    marginBottom: '23px',
   },
 
   font: {

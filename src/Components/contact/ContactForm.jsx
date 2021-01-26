@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { useDispatch } from 'react-redux';
 import { formData } from '../../reducks/contact/operations';
 import { InputTextField, InputLabelField, FormBottom } from './index';
-import { ErrorMessage } from './index';
 
-import { requiredEmail, requiredText } from '../../function/common';
+import { requiredText } from '../../function/common';
 import { db } from '../../firebase/index';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,15 +31,15 @@ const ContactForm = ({ handleNext }) => {
     [dept, setDept] = useState(''),
     [email, setEmail] = useState(''),
     [tell, setTell] = useState(''),
-    [detail, setDetail] = useState('');
-
-  const [checked, setChecked] = useState(false);
+    [detail, setDetail] = useState(''),
+    [checked, setChecked] = useState(false);
 
   const [errorFamily, setErrorFamily] = useState(''),
     [errorCompany, setErrorCompany] = useState(''),
     [errorEmail, setErrorEmail] = useState(''),
     [errorTell, setErrorTell] = useState(''),
-    [errorDetail, setErrorDetail] = useState('');
+    [errorDetail, setErrorDetail] = useState(''),
+    [errorChecked, setErrorChecked] = useState(false);
 
   const isBlank = requiredText(
     familyName,
@@ -52,7 +51,6 @@ const ContactForm = ({ handleNext }) => {
   );
 
   const btnStyle = isBlank || !checked ? classes.disable : classes.able;
-  const emailFormat = requiredEmail(email);
 
   const submitForm = () => {
     setErrorFamily('氏名を入力してください');
@@ -60,6 +58,7 @@ const ContactForm = ({ handleNext }) => {
     setErrorEmail('メールアドレスを入力してください');
     setErrorTell('電話番号を入力してください');
     setErrorDetail('お問い合わせ内容を入力してください');
+    setErrorChecked('チェックをしてください');
 
     if (!isBlank || checked) {
       dispatch(
@@ -132,8 +131,12 @@ const ContactForm = ({ handleNext }) => {
   return (
     <>
       <dl className="contact__wrap">
-        <InputLabelField label={'name'} text={'お名前'} />
-        <ErrorMessage target={familyName} message={errorFamily} />
+        <InputLabelField
+          label={'name'}
+          text={'お名前'}
+          target={familyName}
+          message={errorFamily}
+        />
         <div className="contact__formwrap">
           <InputTextField
             id={'name'}
@@ -158,8 +161,12 @@ const ContactForm = ({ handleNext }) => {
           />
         </div>
 
-        <InputLabelField label={'companey'} text={'会社名'} />
-        <ErrorMessage target={company} message={errorCompany} />
+        <InputLabelField
+          label={'companey'}
+          text={'会社名'}
+          target={company}
+          message={errorCompany}
+        />
         <InputTextField
           id={'companey'}
           fullWidth={true}
@@ -184,8 +191,12 @@ const ContactForm = ({ handleNext }) => {
           onChange={inputDept}
         />
 
-        <InputLabelField label={'email'} text={'メールアドレス'} />
-        <ErrorMessage target={email} message={errorEmail} />
+        <InputLabelField
+          label={'email'}
+          text={'メールアドレス'}
+          target={email}
+          message={errorEmail}
+        />
         <InputTextField
           id={'email'}
           fullWidth={true}
@@ -198,8 +209,12 @@ const ContactForm = ({ handleNext }) => {
           onChange={inputEmail}
         />
 
-        <InputLabelField label={'tell'} text={'電話番号'} />
-        <ErrorMessage target={tell} message={errorTell} />
+        <InputLabelField
+          label={'tell'}
+          text={'電話番号'}
+          target={tell}
+          message={errorTell}
+        />
         <InputTextField
           id={'tell'}
           fullWidth={true}
@@ -212,8 +227,12 @@ const ContactForm = ({ handleNext }) => {
           onChange={inputTell}
         />
 
-        <InputLabelField label={'detail'} text={'お問い合わせ内容'} />
-        <ErrorMessage target={detail} message={errorDetail} />
+        <InputLabelField
+          label={'detail'}
+          text={'お問い合わせ内容'}
+          target={detail}
+          message={errorDetail}
+        />
         <InputTextField
           id={'require'}
           fullWidth={true}
@@ -232,6 +251,8 @@ const ContactForm = ({ handleNext }) => {
         handleChange={handleChange}
         style={'contact__btnright' + ' ' + btnStyle}
         submit={submitForm}
+        target={checked}
+        message={errorChecked}
       />
     </>
   );

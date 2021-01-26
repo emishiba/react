@@ -3,10 +3,15 @@ import initialState from '../store/initialState';
 
 export const WorksReducer = (state = initialState.works, action) => {
   switch (action.type) {
-    case Actions.FETCH_IMAGES:
+    case Actions.FETCH_PFDATAFRONT:
       return {
         ...state,
-        list: [...action.payload],
+        front: [...action.payload],
+      };
+    case Actions.FETCH_PFDATAREACT:
+      return {
+        ...state,
+        react: [...action.payload],
       };
     default:
       return state;

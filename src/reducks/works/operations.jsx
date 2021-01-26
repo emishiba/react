@@ -1,17 +1,29 @@
-import { Firebasetimestamp, db } from '../../firebase/index';
-import { fetchImagesAction } from './actions';
+import { db } from '../../firebase/index';
+import { fetchPfdataFrontAction, fetchPfdataReactAction } from './actions';
 
-const worksRef = db.collection('works');
-
-export const fetchImages = () => {
+export const fetchPfdataFront = () => {
   return async (dispatch) => {
-    worksRef.get().then((snapshots) => {
-      const list = [];
-      snapshots.forEach((snapshot) => {
-        const image = snapshot.data();
-        list.push(image);
-      });
-      dispatch(fetchImagesAction(list));
+    const pfRef = db.collection('pfdataFront');
+    const snapshots = await pfRef.get();
+
+    const front = [];
+    snapshots.forEach((snapshot) => {
+      const data = snapshot.data();
+      front.push(data);
     });
+    dispatch(fetchPfdataFrontAction(front));
+  };
+};
+export const fetchPfdataReact = () => {
+  return async (dispatch) => {
+    const pfRef = db.collection('pfdataReact');
+    const snapshots = await pfRef.get();
+
+    const react = [];
+    snapshots.forEach((snapshot) => {
+      const data = snapshot.data();
+      react.push(data);
+    });
+    dispatch(fetchPfdataReactAction(react));
   };
 };

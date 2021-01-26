@@ -33,7 +33,7 @@ const SkillList = () => {
           <TextListDl secondary={'React'} primary={<SkillListItem />} />
           <dd>
             React
-            Hooks/Router/Reduxを使ってPFを作成しています。チャットやショッピングサイトのWebアプリを作成したことがあります。Firebaseも使用しています。
+            Hooks/Router/Reduxを使ってPFを作成しています。チャットやショッピングサイトのWebアプリを作成したことがあります。Firebaseを使用しています。
           </dd>
         </div>
         <div className="skill__wrap">

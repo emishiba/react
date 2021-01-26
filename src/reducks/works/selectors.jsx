@@ -2,4 +2,11 @@ import { createSelector } from 'reselect';
 
 const WorksSelector = (state) => state.works;
 
-export const getImages = createSelector([WorksSelector], (state) => state.list);
+export const getPfdataFront = createSelector(
+  [WorksSelector],
+  (state) => state.front
+);
+export const getPfdataReact = createSelector(
+  [WorksSelector],
+  (state) => state.react
+);

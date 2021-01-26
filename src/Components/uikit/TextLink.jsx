@@ -1,17 +1,13 @@
 import React from 'react';
-import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/styles';
-import ListItem from '@material-ui/core/ListItem';
 
 const useStyles = makeStyles({
   link: {
     cursor: 'pointer',
     fontSize: '18px',
-    // paddingBottom: '5px',
   },
 
   notCurrent: {
-    color: '#333',
     '&:hover': {
       color: '#77A6D5',
     },

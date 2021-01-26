@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import Stepper from '@material-ui/core/Stepper';
 import { makeStyles } from '@material-ui/core/styles';
 import { useDispatch } from 'react-redux';
 import { push } from 'connected-react-router';

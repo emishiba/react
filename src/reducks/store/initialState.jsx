@@ -1,6 +1,7 @@
 const initialState = {
   works: {
-    list: [],
+    front: [],
+    react: [],
   },
 
   contact: {

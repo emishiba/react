@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { FooterBkg } from '../common/index';
+import { ErrorMessage } from './index';
 
 const useStyles = makeStyles({
   text: {
@@ -13,13 +14,30 @@ const useStyles = makeStyles({
   bkg: {
     background: 'URL(../../src/assets/imgs/footer_bkg.png) no-repeat',
   },
+
+  errorwrap: {
+    display: 'block',
+    textAlign: 'center',
+    position: 'relative',
+  },
 });
-const FormBottom = ({ label, checked, handleChange, style, submit }) => {
+const FormBottom = ({
+  label,
+  checked,
+  handleChange,
+  style,
+  submit,
+  target,
+  message,
+}) => {
   const classes = useStyles();
 
   return (
     <div>
       <FooterBkg />
+      <div className={classes.errorwrap}>
+        <ErrorMessage target={target} message={message} />
+      </div>
       <label className="contact__checkbox">
         <input type="checkbox" checked={checked} onChange={handleChange} />
         <span>

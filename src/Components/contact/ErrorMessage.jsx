@@ -11,7 +11,9 @@ const useStyles = makeStyles({
 const ErrorMessage = ({ target, message }) => {
   const classes = useStyles();
 
-  return <>{target === '' && <dd className={classes.error}>{message} </dd>}</>;
+  return (
+    <>{target == false && <span className={classes.error}>{message} </span>}</>
+  );
 };
 
 export default ErrorMessage;

@@ -11,19 +11,55 @@
 const functions = require('firebase-functions'),
   admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
+const db = admin.firestore();
 
-exports.thumbImgs = functions.storage.object().onFinalize((object) => {
+//  サムネイル画像の登録
+exports.pfThumbs = functions.storage.object().onFinalize((object) => {
   const bucketName = 'portfolio-7bf15.appspot.com';
+  const worksRef = db.collection('works');
   const filePath = object.name;
-  const id = filePath.split('.png')[0];
-  const db = admin.firestore();
+  const id = filePath;
 
-  db.collection('works')
-    .add({
-      id: id,
+  worksRef
+    .doc(id)
+    .set({
+      id: filePath,
       path: `https://firebasestorage.googleapis.com/v0/b/${bucketName}/o/${encodeURIComponent(
         filePath
       )}?alt=media`,
     })
-    .then(() => console.log('Done')); // eslint-disable-line no-console
+    .then(() => console.log('Done'));
+});
+
+const sendResponse = (response, statusCode, body) => {
+  response.send({
+    statusCode,
+    body: JSON.stringify(body),
+  });
+};
+
+exports.addDatasetFront = functions.https.onRequest(async (req, res) => {
+  if (req.method !== 'POST') {
+    sendResponse(res, 405, { error: 'Invalid Request' });
+  } else {
+    const dataset = req.body;
+    for (const key of Object.keys(dataset)) {
+      const data = dataset[key];
+      await db.collection('pfdataFront').doc(key).set(data);
+    }
+    sendResponse(res, 200, { message: 'Success!!' });
+  }
+});
+
+exports.addDatasetReact = functions.https.onRequest(async (req, res) => {
+  if (req.method !== 'POST') {
+    sendResponse(res, 405, { error: 'Invalid Request' });
+  } else {
+    const dataset = req.body;
+    for (const key of Object.keys(dataset)) {
+      const data = dataset[key];
+      await db.collection('pfdataReact').doc(key).set(data);
+    }
+    sendResponse(res, 200, { message: 'Success!!' });
+  }
 });

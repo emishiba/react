@@ -23,7 +23,6 @@ const useStyles = makeStyles({
 
   lang: {
     display: 'block',
-    color: '#333',
     fontSize: '14px',
     fontWeight: '500',
     transition: '0.3s',

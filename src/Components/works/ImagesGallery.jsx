@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 
@@ -17,6 +17,14 @@ const ImagesGallery = ({ slide }) => {
     {
       original: slide[1],
       thumbnail: slide[1],
+    },
+    {
+      original: slide[2],
+      thumbnail: slide[2],
+    },
+    {
+      original: slide[3],
+      thumbnail: slide[3],
     },
   ];
 

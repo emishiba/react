@@ -22,7 +22,6 @@ $sp: 480px;
 }
 
 //  common
-
 @mixin max-width($wid: 820px) {
   max-width: $wid;
   width: 100%;

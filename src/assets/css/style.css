@@ -439,11 +439,11 @@ main {
 
 .image-gallery {
   background: #c4c4c4;
-  padding: 10px 0;
+  padding: 32.96px 0;
 }
 
 .image-gallery-slide-wrapper {
-  width: 55%;
+  width: 520px;
   margin: 0 auto;
 }
 
@@ -514,7 +514,7 @@ main {
   margin-top: 20px;
 }
 
-.contact dt:not(:nth-of-type(3))::after {
+.contact dt:not(:nth-of-type(3)) label::after {
   display: inline-block;
   content: '*';
   width: 10px;

@@ -1,6 +1,5 @@
-import { Firebasetimestamp, db } from '../../firebase/index';
+import { db } from '../../firebase/index';
 const contactRef = db.collection('contact');
-import { push } from 'connected-react-router';
 import { fetchContactData } from './actions';
 
 export const formData = (
@@ -26,8 +25,6 @@ export const formData = (
       detail: detail,
       checked: checked,
     };
-
-    console.log(checked);
 
     return contactRef
       .doc(id)

@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { getContactData } from '../../reducks/contact/selectors';
 import { InputTextField, InputLabelField, FormBottom } from './index';
 
 const ContactConfirm = ({ handleNext }) => {
-  const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const contactData = getContactData(selector);
 
@@ -16,7 +15,6 @@ const ContactConfirm = ({ handleNext }) => {
     <>
       <dl className="contact__wrap">
         <InputLabelField label={'name'} text={'お名前'} />
-
         <div className="contact__formwrap">
           <InputTextField
             id={'name'}
@@ -42,7 +40,6 @@ const ContactConfirm = ({ handleNext }) => {
         </div>
 
         <InputLabelField label={'companey'} text={'会社名'} />
-
         <InputTextField
           id={'companey'}
           fullWidth={true}

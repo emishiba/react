@@ -1,9 +1,12 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect } from 'react';
 import { Title } from '../Components/common/index';
 import { CodingFront, CodingReact } from '../Components/works/index';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchImages } from '../reducks/works/operations';
-import { getImages } from '../reducks/works/selectors';
+import {
+  fetchPfdataFront,
+  fetchPfdataReact,
+} from '../reducks/works/operations';
+import { getPfdataFront, getPfdataReact } from '../reducks/works/selectors';
 import { TabsMenu } from '../Components/works/index';
 import { makeStyles } from '@material-ui/styles';
 
@@ -21,12 +24,14 @@ const Works = () => {
 
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
-  const images = getImages(selector);
+  const pfdataFront = getPfdataFront(selector);
+  const pfdataReact = getPfdataReact(selector);
 
   const menu = ['HTML/CSS/JS', 'React'];
 
   useEffect(() => {
-    dispatch(fetchImages());
+    dispatch(fetchPfdataFront());
+    dispatch(fetchPfdataReact());
   }, [dispatch]);
 
   return (
@@ -38,8 +43,8 @@ const Works = () => {
         練習用に動画講座を視聴しながら作成した作品も含んでいます。
       </p>
       <TabsMenu label={menu}>
-        <CodingFront images={images} />
-        <CodingReact />
+        <CodingFront pfdata={pfdataFront} />
+        <CodingReact pfdata={pfdataReact} />
       </TabsMenu>
     </section>
   );
