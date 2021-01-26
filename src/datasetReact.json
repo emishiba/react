@@ -1,0 +1,26 @@
+{
+  "chatbot": {
+    "desc": "回答選択肢に応じてチャット内容が変わります。\\n食べたいものに関連した食べログサイトに飛び、問い合わせフォームで依頼をすることもできます。",
+    "lang": "HTML/CSS/Javascript/React",
+    "name": ["chat-bot", "webアプリ"],
+    "slide": [
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/chatbot_1.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/chatbot_2.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/chatbot_3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/chatbot_4.png?alt=media"
+    ],
+    "url": "https://chatbot-restaurants.web.app/"
+  },
+  "ecapp": {
+    "desc": "商品を追加＆購入できるECサイトをイメージして制作。\\nログイン認証はFirebase Authenticationを利用しています。\\nReduxで状態を管理し、ページ遷移はReact Routerを使用しています。",
+    "lang": "HTML/CSS/Javascript/React",
+    "name": ["ec-app", "webアプリ"],
+    "slide": [
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/ecapp_1.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/ecapp_2.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/ecapp_3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/ecapp_4.png?alt=media"
+    ],
+    "url": "https://ec-app-8758b.web.app/"
+  }
+}

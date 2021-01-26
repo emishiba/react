@@ -1,0 +1,38 @@
+{
+  "deonatulle": {
+    "desc": "PC・SP版を担当＆レスポンシブ対応。\\nトップページの他に商品に関連したコラムのページが3ページあります。\\n商品をクリックしたらモーダルが開く・商品ごとの専用ページに飛ぶ動きはJavascriptを使用しています。",
+    "lang": "HTML/CSS/Javascript",
+    "name": ["deonatulle", "LP"],
+    "slide": [
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/deonatulle_1.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/deonatulle_2.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/deonatulle_3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/deonatulle_4.png?alt=media"
+    ],
+    "url": "http://otoko-deonatulle.com/cp/2018/murease-men.html"
+  },
+  "k-mori": {
+    "desc": "PC版を担当。\\nマウス操作に連動したホバーやアニメーションが特徴的です。\\n共通のスタイルはscssのmixinを活用しています。\\nスライドはプラグインのslickを使用しています。",
+    "lang": "HTML/CSS/Javascript",
+    "name": ["軽の森", "公式サイト"],
+    "slide": [
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/kmori_1.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/kmori_2.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/kmori_3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/kmori_4.png?alt=media"
+    ],
+    "url": "https://keinomori.com/"
+  },
+  "dr.stone": {
+    "desc": "SP版を担当。\\nローディング画面やメニューのスライド・タブの切り替えなどでjsを使用しています。\\nyoutubeの埋め込みはapi使って制御し、スライドはプラグインのslickを使用。",
+    "lang": "HTML/CSS/Javascript",
+    "name": ["Dr.STONE", "公式サイト"],
+    "slide": [
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/dr.stone_1.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/dr.stone_2.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/dr.stone_3.png?alt=media",
+      "https://firebasestorage.googleapis.com/v0/b/portfolio-7bf15.appspot.com/o/dr.stone_4.png?alt=media"
+    ],
+    "url": "https://dr-stone.jp/"
+  }
+}
