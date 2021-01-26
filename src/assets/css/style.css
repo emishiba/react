@@ -246,6 +246,7 @@ main {
   max-width: 820px;
   width: 100%;
   margin: auto;
+  padding-bottom: 70px;
 }
 
 .skill h2 {
